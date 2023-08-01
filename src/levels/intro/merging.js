@@ -37,7 +37,7 @@ exports.level = {
     "ko": "말씀드린 순서대로 커밋해주세요 (bugFix에 먼저 커밋하고 main에 커밋)",
     "ru_RU": "Не забудь делать коммиты в правильном порядке (сначала bugFix, потом main)",
     "uk": "Не забудь робити коміти в правильному порядку (спочатку bugFix, а вже потім main)",
-    "vi": "Nhớ là commit theo đúng thứ tự(bugFix trước main)",
+    "vi": "Nhớ là commit theo đúng thứ tự (bugFix trước main)",
     "sl_SI": 'Zapomni si, da je potrebno commitati v pravilnem vrstnem redu (bugfix pred main)',
     "pl": "Pamiętaj, aby commitować w określonej kolejności (bugFix przed main)",
     "it_IT":
@@ -679,7 +679,7 @@ exports.level = {
               "",
               "太好了! 我们已经知道如何提交以及如何使用分支了。接下来咱们看看如何将两个分支合并到一起。就是说我们新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。",
               "",
-              "咱们先来看一下第一种方法 —— `git merge`。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。”",
+              "咱们先来看一下第一种方法 —— `git merge`。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个 parent 节点。翻译成自然语言相当于：“我要把这两个 parent 节点本身及它们所有的祖先都包含进来。”",
               "",
               "通过图示更容易理解一些，咱们到下一页看一下。"
             ]
@@ -695,7 +695,7 @@ exports.level = {
             ],
             "command": "git merge bugFix",
             "afterMarkdowns": [
-              "哇哦！看见了吗？首先，`main` 现在指向了一个拥有两个父节点的提交记录。假如从 `main` 开始沿着箭头向上看，在到达起点的路上会经过所有的提交记录。这意味着 `main` 包含了对代码库的所有修改。↓↓↓",
+              "哇哦！看见了吗？首先，`main` 现在指向了一个拥有两个 parent 节点的提交记录。假如从 `main` 开始沿着箭头向上看，在到达起点的路上会经过所有的提交记录。这意味着 `main` 包含了对代码库的所有修改。↓↓↓",
               "",
               "还有，看见各个提交记录的颜色变化了吗？为了帮助学习理解，我引入了颜色搭配。每个分支都有不同的颜色，而每个提交记录的颜色是所有包含该提交记录的分支的颜色混合之后的颜色。",
               "",
@@ -1026,7 +1026,7 @@ exports.level = {
               "",
               "Cách đầu tiên để hợp nhất thành quả cần xem xét đến là lệnh `git merge`. Merge trong Git là tạo ra một commit đặc biệt mà có 2 người cha độc nhất. Một commit mà có 2 cha căn bản nghĩa là \"Tôi muốn có thành quả của ông này và ông kia nữa, *và* tất cả ông cha của họ.\"",
               "",
-              "Trực quan thì dễ hiểu hơn, sang trang tiếp theo nào"
+              "Trực quan thì dễ hiểu hơn, sang trang tiếp theo nào."
             ]
           }
         },
@@ -1043,7 +1043,7 @@ exports.level = {
               "",
               "Đồng thời, bạn thấy màu commit thay đổi chứ? Để bạn dễ học hơn, tôi đã phối hợp một số bảng màu. Mỗi nhánh có một màu duy nhất. Mỗi commit mang màu pha trộn của tất cả nhánh chứa nó.",
               "",
-              "Vì vậy, ở đây chúng ta thấy rằng màu nhánh `main` được pha trộn vào tất cả các commit, nhưng màu` bugFix` thì không. Hãy sửa nó nào ..."
+              "Vì vậy, ở đây chúng ta thấy rằng màu nhánh `main` được pha trộn vào tất cả các commit, nhưng màu `bugFix` thì không. Hãy sửa nó nào..."
             ],
             "command": "git merge bugFix",
             "beforeCommand": "git checkout -b bugFix; git commit; git checkout main; git commit"
@@ -1056,7 +1056,7 @@ exports.level = {
               "Hãy gộp nhánh `main` vào `bugFix` nào:"
             ],
             "afterMarkdowns": [
-              "Vì `bugFix` là bậc cha ông của `main`, git chẳng phải làm gì cả; nó đơn giản chỉ chuyển `bugFix` vào commit mà `main` đang trỏ tới.",
+              "Vì `bugFix` là bậc cha ông của `main`, Git chẳng phải làm gì cả; nó đơn giản chỉ chuyển `bugFix` vào commit mà `main` đang trỏ tới.",
               "",
               "Giờ thì tất cả commit đã có cùng màu, nghĩa là mỗi nhánh đã chứa tất cả thành quả trong kho! Ồ hố!"
             ],
@@ -1077,7 +1077,7 @@ exports.level = {
               "* Commit một lần nữa",
               "* Gộp nhánh `bugFix` vào `main` với `git merge`",
               "",
-              "*Nhớ rằng, bạn luôn luôn có thể bật lại hội thoại này với lệnh \"objective\"!*"
+              "*Nhớ rằng, bạn luôn luôn có thể bật lại hộp thoại này với lệnh \"objective\"!*"
             ]
           }
         }

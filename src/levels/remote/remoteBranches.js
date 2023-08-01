@@ -7,6 +7,7 @@ exports.level = {
     "zh_CN": "远程分支",
     "zh_TW": "remote branch （遠端分支）",
     "es_AR": "Ramas remotas",
+    "es_MX": "Ramas remotas",
     "es_ES": "Ramas remotas",
     "pt_BR": "Ramos remotos",
     "gl": "Ramas remotas",
@@ -26,6 +27,7 @@ exports.level = {
     "zh_CN": "注意顺序 —— 先在 main 分支上提交!",
     "zh_TW": "注意順序的問題喔！先在 main branch 上面送 commit",
     "es_AR": "Prestá atención al orden: ¡commiteá sobre main primero!",
+    "es_MX": "Presta atención al orden: ¡haz commit sobre main primero!",
     "es_ES": "Presta atención al orden: ¡haz commit sobre main primero!",
     "pt_BR": "Preste atenção na ordem: commite no main primeiro!",
     "gl": "Preta atención á orde: fai commit no main primeiro",
@@ -159,7 +161,7 @@ exports.level = {
           "type": "ModalAlert",
           "options": {
             "markdowns": [
-              "Pour finir ce niveau, faites un commit en dehors de `main` puis un après vous être rendu dans `o/main`. Cela va nous aider à comprendre la différence de comportement des branches distantes, et le fait qu'elles se mettent à jour uniquement pour refléter l'état du dépôt distant."
+              "Pour finir ce niveau, faites un commit à partir de `main` puis un autre après vous être rendu dans `o/main`. Cela va nous aider à comprendre la différence de comportement des branches distantes, et le fait qu'elles se mettent à jour uniquement pour refléter l'état du dépôt distant."
             ]
           }
         }
@@ -221,6 +223,69 @@ exports.level = {
           "options": {
             "markdowns": [
               "Para completar este nivel, commiteá una vez sobre `main` y una después de checkoutear `o/main`. Esto te va a ayudar a caer en cómo las ramas remotas funcionan distinto, y que sólo se actualizan para reflejar el estado del remoto."
+            ]
+          }
+        }
+      ]
+    },
+    "es_MX": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## Ramas remotas de git",
+              "",
+              "Ahora que viste `git clone` en acción, profundicemos en lo que realmente cambió.",
+              "",
+              "Lo primero que habrás notado es que apareció una nueva rama en nuestro repositorio local llamada `o/main`. A este tipo de ramas se les llama ramas _remotas_. Las ramas remotas tienen propiedades especiales porque sirven para un propósito específico.",
+              "",
+              "Las ramas remotas reflejan el _estado_ de los repositorios remotos (como estaban la última vez que te comunicaste con ellos). Te ayudan a entender las diferencias entre tu trabajo local y el trabajo que ya está publicado (un paso crítico antes de compartir tu trabajo con los demás).",
+              "",
+              "Las ramas remotas tienen la propiedad especial de que cuando haces checkout sobre ellas, pasas al modo detached `HEAD`. Git lo hace a propósito porque no puedes trabajar en esas ramas directamente; tienes que trabajar en algún otro lado y después compartir tu trabajo con el remoto (tras lo cual tus ramas remotas serán actualizadas).",
+              "",
+              "Para ser claros: Las ramas remotas están en tu repositorio local, no en el repositorio remoto"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### ¿Qué es `o/`?",
+              "",
+              "Podrías estar preguntándote qué significa ese `o/` al principio de las ramas remotas. Bueno, las ramas remotas también tienen una convención de nombres obligatoria -- se muestran con el siguiente formato:",
+              "",
+              "* `<nombre del remoto>/<nombre de la rama>`",
+              "",
+              "Entonces, si observas una rama llamada `o/main`, el nombre de la rama es `main`, y el nombre del remoto es `o`.",
+              "",
+              "Realmente, la mayoría de los desarrolladores llaman `origin` a su remoto en lugar de `o`. Esto es tan común que git directamente crea tu remoto llamándolo `origin` cuando haces `git clone` de un repositorio.",
+              "",
+              "Desafortunadamente, el nombre `origin` no cabe en nuestra UI (interfaz de usuario), así que usamos `o` para abreviar :( Simplemente recuerda que cuando uses el git real, tu remoto ¡probablemente se llame `origin`!",
+              "",
+              "Eso es mucho para digerir, así que veámoslo en acción."
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Hagamos checkout sobre una rama remota y veamos qué pasa."
+            ],
+            "afterMarkdowns": [
+              "Como puedes ver, git nos puso en el modo detached `HEAD` y no actualizó `o/main` cuando creamos un nuevo commit. Esto es porque `o/main` sólo va a actualizarse cuando el remoto se actualice."
+            ],
+            "command": "git checkout o/main; git commit",
+            "beforeCommand": "git clone"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Para terminar este nivel, haz un commit sobre `main` y uno después de hacer checkout a `o/main`. Esto te va a ayudar a aprender cómo se comportan las ramas remotas, y que sólo se actualizan para reflejar el estado del remoto."
             ]
           }
         }
@@ -846,11 +911,13 @@ exports.level = {
               "",
               "Giờ bạn đã thấy cách thức hoạt động của `git clone`, cùng xem xét kỹ hơn những gì đã xảy ra.",
               "",
-              "Điều đầu tiên mà có thể bạn để ý là một nhánh mới xuất hiện trong kho chứa địa phương của ta là `o/main`. Loại nhánh này được gọi là nhánh _từ xa_ (_remote_) ; nhánh từ xa có những thuộc tính đặc biệt vì chúng phục vụ những mục đích duy nhất.",
+              "Điều đầu tiên mà có thể bạn để ý là một nhánh mới xuất hiện trong kho chứa cục bộ của ta là `o/main`. Loại nhánh này được gọi là nhánh _từ xa_ (_remote_); nhánh từ xa có những thuộc tính đặc biệt vì chúng phục vụ một mục đích duy nhất.",
               "",
-              "Nhánh từ xa phản ánh _trạng thái_ (_state_) của kho chứa từ xa (kể từ lần cuối cùng bạn tương tác với kho chứa từ xa). Chúng giúp bạn hiểu về sự khác biệt giữa công tác trên kho chứa cục bộ với kho chứa từ xa -- một bước quan trọng trước khi chia sẻ công việc của bạn với người khác.",
+              "Nhánh từ xa phản ánh _trạng thái_ (_state_) của kho chứa từ xa (kể từ lần cuối cùng bạn tương tác với kho chứa từ xa). Chúng giúp bạn hiểu về sự khác biệt giữa công việc trên kho chứa cục bộ với kho chứa từ xa -- một bước quan trọng trước khi chia sẻ công việc của bạn với người khác.",
               "",
-              "Nhánh từ xa có một thuộc tính đặc biệt đó là khi bạn chuyển sang chúng bạn sẽ vào trạng thái tách rời `HEAD`. Git chủ tâm làm việc này vì bạn không thể công tác trực tiếp trên chúng; bạn phải công tác ở nơi khác và chia sẻ thành quả lên kho chứa từ xa (sau đó nhánh từ xa sẽ được cập nhật)."
+              "Nhánh từ xa có một thuộc tính đặc biệt đó là khi bạn chuyển sang chúng, bạn sẽ vào trạng thái tách rời `HEAD`. Mục đích của Git là để bạn không thể làm việc trực tiếp trên nhánh từ xa; bạn phải làm việc ở nơi khác và chia sẻ thành quả lên kho chứa từ xa (sau đó nhánh từ xa sẽ được cập nhật).",
+              "",
+              "Nói rõ một chút: Các nhánh từ xa nằm trên kho lưu trữ cục bộ của bạn, không phải trên kho lưu trữ từ xa."
             ]
           }
         },
@@ -858,17 +925,17 @@ exports.level = {
           "type": "ModalAlert",
           "options": {
             "markdowns": [
-              "###`o/` là gì vậy?",
+              "### `o/` là gì vậy?",
               "",
-              "Có thể bạn sẽ thắc mắc về ký tự `o/` ở đầu tên nhánh từ xa có ý nghĩa gì. Chà, tên nhánh từ xa cũng có (thiết yếu) quy tắc đặt tên -- chúng được hiển thị dưới dạng:",
+              "Có thể bạn sẽ thắc mắc về ký tự `o/` ở đầu tên nhánh từ xa có ý nghĩa gì. Chà, tên nhánh từ xa cũng có (ràng buộc) quy tắc đặt tên -- chúng được hiển thị dưới dạng:",
               "",
-              "* `<tên kho từ xa>/<tên nhánh>`",
+              "* `<tên kho chứa từ xa>/<tên nhánh>`",
               "",
-              "Do đó, ở trong `o/main` thì `main` là tên nhánh còn `o` là tên kho chứa từ xa.",
+              "Do đó, đối với `o/main` thì `main` là tên nhánh còn `o` là tên kho chứa từ xa.",
               "",
               "Thực tế thì hầu hết các nhà phát triển đặt tên kho chứa từ xa là `origin` chứ không phải `o`. Nó trở thành thông lệ đến nỗi Git đặt tên `origin` cho kho chứa từ xa khi bạn dùng `git clone` để sao chép một kho chứa.",
               "",
-              "Đáng tiêc là `origin` không khớp trong giao diện của chúng tôi, nên chúng tôi đành phải viết tắt là `o` :( Nhưng hãy nhớ rằng khi dùng git thật sự thì chắc hẳn tên của kho chứa từ xa sẽ là `origin`!",
+              "Đáng tiếc là `origin` không khớp trong giao diện của chúng tôi, nên chúng tôi đành phải viết tắt là `o` :( Nhưng hãy nhớ rằng khi dùng Git thật sự thì chắc hẳn tên của kho chứa từ xa sẽ là `origin`!",
               "",
               "Lý thuyết hơi nhiều rồi, đi vào thực hành thôi."
             ]
@@ -878,10 +945,10 @@ exports.level = {
           "type": "GitDemonstrationView",
           "options": {
             "beforeMarkdowns": [
-              "Hãy thử chuyển sang nhánh từ xa xem điểu gì xảy ra."
+              "Hãy thử chuyển sang nhánh từ xa xem điều gì xảy ra."
             ],
             "afterMarkdowns": [
-              "Như bạn thấy, git đưa ta vào trạng thái `HEAD` và không cập nhật nhánh `o/main` khi ta thêm một commit. Đó là bởi vì `o/main` chỉ cập nhật khi kho chứa từ xa được cập nhật."
+              "Như bạn thấy, Git đưa ta vào trạng thái tách rời `HEAD` và không cập nhật nhánh `o/main` khi ta thêm một commit. Đó là bởi vì `o/main` chỉ cập nhật khi kho chứa từ xa cập nhật."
             ],
             "command": "git checkout o/main; git commit",
             "beforeCommand": "git clone"
@@ -891,7 +958,7 @@ exports.level = {
           "type": "ModalAlert",
           "options": {
             "markdowns": [
-              "Để hoàn thành cấp độ này, commit một lần trên `main` và một lần nữa sau khi chuyển sang `o/main`. Điều nãy sẽ giúp ta hiểu cách nhánh từ xa hành xử, chúng chỉ cập nhật để phản ánh trạng thái của kho chứa từ xa."
+              "Để hoàn thành cấp độ này, commit một lần trên `main` và một lần nữa sau khi chuyển sang `o/main`. Điều này sẽ giúp ta hiểu cách nhánh từ xa hành xử, chúng chỉ cập nhật để phản ánh trạng thái của kho chứa từ xa."
             ]
           }
         }
