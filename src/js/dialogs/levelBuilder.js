@@ -33,7 +33,7 @@ exports.dialog = {
         '  * Gib einen Hinweis mittels ```define hint``` an, wenn du willst',
         '  * Änder den Namen mittels ```define name```',
         '  * Wenn du magst, erstelle einen schönen Einführungsdialog mit ```edit dialog```',
-        '  * Gib das Kommando ```finish``` ein um deinen Level als JSON auszugeben'
+        '  * Gib das Kommando ```finish``` ein, um dein Level als JSON auszugeben'
       ]
     }
   }],
@@ -184,7 +184,7 @@ exports.dialog = {
         '  * Définissez l\'arbre cible avec ```define goal```. Cela définit aussi la solution',
         '  * Optionnellement, définissez un indice avec ```define hint```',
         '  * Changez le nom avec ```define name```',
-        '  * Optionellement, definissez un joli dialogue de départ avec ```edit dialog```',
+        '  * Optionnellement, définissez un joli dialogue de départ avec ```edit dialog```',
         '  * Entrez la commande ```finish``` pour délivrer votre niveau JSON!'
       ]
     }
@@ -259,7 +259,7 @@ exports.dialog = {
         '  * git 명령어로 초기 환경을 만들어주세요',
         '  * 시작 트리를 ```define start```로 정의하세요',
         '  * (최적화된)정답을 만드는 git 명령어들을 입력하세요',
-        '  * 골 트리를 ```define goal```로 정의해주세요. 골을 정의하면 정답도 같이 정의됩니다',
+        '  * 목표 트리를 ```define goal```로 정의해주세요. 목표를 정의하면 정답도 같이 정의됩니다',
         '  * ```define hint```로 원하면 힌트도 정의해줄수 있습니다',
         '  * 문제의 이름을 ```define name```로 수정하세요',
         '  * 시작 글이 필요하다면 ```edit dialog```로 쓸 수 있습니다',
@@ -384,4 +384,3 @@ exports.dialog = {
     }
   }],
 };
-

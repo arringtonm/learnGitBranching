@@ -22,6 +22,7 @@ exports.level = {
     'ta_IN': 'ஒன்றுக்கு மேற்ப்பட்ட துவக்க கிலைகள்',
     'it_IT': "Genitori multipli",
     "pl": "Wielu rodziców",
+    "tr_TR": "Birden fazla ebeveyn"
   },
   "hint": {
     "en_US": "Use `git branch bugWork` with a target commit to create the missing reference.",
@@ -41,9 +42,9 @@ exports.level = {
     'vi': 'Dùng lệnh `git branch bugWork` để tạo nhánh tại vị trí chỉ định',
     'sl_SI': 'Uporabi `git branch bugWork` s ciljnim commitom za ustvarjanje manjkajoče reference.',
     "ta_IN": "`git branch bugWork` பயன்படுத்தி தேவைப்படும் கமிட்டுடன் இழந்த இணைப்பை உருவாக்குக.",
-    'it_IT':
-      "Scrivi `git branch bugWork` con un commit per creare il riferimento mancante.",
+    'it_IT': "Scrivi `git branch bugWork` con un commit per creare il riferimento mancante.",
     "pl": "Użyj `git branch bugWork` na docelowym commicie, aby utworzyć brakującą referencję.",
+    "tr_TR": "Eksik referansı oluşturmak için hedef commit ile `git branch bugWork` komutunu kullanın."
   },
   "startDialog": {
     "en_US": {
@@ -1618,7 +1619,7 @@ exports.level = {
           type: "ModalAlert",
           options: {
             markdowns: [
-              "### Speficicare i genitori",
+              "### Specificare i genitori",
               "",
               "Come il modificatore `~` , anche il modificatore `^` accetta un numero (opzionale) dopo di esso.",
               "",
@@ -1637,7 +1638,7 @@ exports.level = {
             beforeMarkdowns: [
               "Qui abbiamo un merge commit. Se facciamo checkout `main^` senza modificatore, seguiremo il primo genitore dopo il merge commit. ",
               "",
-              "(*Nell'immagine, il primo genitore è situato direttamente al di sopra al merge commit.*)",
+              "(*Nell'immagine, il primo genitore è situato direttamente al di sopra del merge commit.*)",
             ],
             afterMarkdowns: ["Facile -- questo è quello a cui siamo abituati."],
             command: "git checkout main^",
@@ -1674,7 +1675,7 @@ exports.level = {
           type: "GitDemonstrationView",
           options: {
             beforeMarkdowns: [
-              "Ancora più sorprendente, questi modificatori possono essere concatenati tra loro! Dai un occhiata:",
+              "Ancora più sorprendente, questi modificatori possono essere concatenati tra loro! Dai un'occhiata:",
             ],
             afterMarkdowns: [
               "Stessi passaggi di prima, ma tutto con un comando.",
@@ -1698,5 +1699,93 @@ exports.level = {
         },
       ],
     },
+    "tr_TR": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Ebeveyn Belirtme",
+              "",
+              "`~` modifikatörü gibi, `^` modifikatörü de ardından isteğe bağlı bir sayı alabilir.",
+              "",
+              "`~`'in geri gitmek için nesil sayısını belirtmesinin aksine, `^` modifikatörü birleştirilmiş bir commit'ten hangi ebeveyn referansını takip edeceğinizi belirtir. Unutmayın ki birleştirilmiş commit'ler birden fazla ebeveyne sahip olduğundan, hangi yolu seçileceği belirsizdir.",
+              "",
+              "Git genellikle birleştirilmiş commit'ten \"ilk\" ebeveyni yukarı doğru takip eder, ancak `^` ile bir sayı belirtmek, bu varsayılan davranışı değiştirir.",
+              "",
+              "Yeterince konuştuk, gelin bunu aksiyonda görelim.",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Burada birleştirilmiş bir commit var. Eğer `main^`'i modifikatörsüz checkout edersek, birleştirilmiş commit'ten sonra ilk ebeveyni takip edeceğiz.",
+              "",
+              "(*Görsellerimizde, ilk ebeveyn birleştirilmiş commit'in hemen üstünde yer alır.*)"
+            ],
+            "afterMarkdowns": [
+              "Kolay -- bu, hepimizin alışık olduğu şey."
+            ],
+            "command": "git checkout main^",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout main; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Şimdi, ikinci ebeveyni belirtmeyi deneyelim..."
+            ],
+            "afterMarkdowns": [
+              "Görüyor musunuz? Diğer ebeveyni yukarıya takip ettik."
+            ],
+            "command": "git checkout main^2",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout main; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "`^` ve `~` modifikatörleri, commit ağacında gezinmeyi çok güçlü hale getirebilir:"
+            ],
+            "afterMarkdowns": [
+              "Şimşek gibi hızlı!"
+            ],
+            "command": "git checkout HEAD~; git checkout HEAD^2; git checkout HEAD~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout main; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Daha çılgınca, bu modifikatörler birbirine zincirlenebilir! Bunu izleyin:"
+            ],
+            "afterMarkdowns": [
+              "Önceki hareketin aynısı, ancak tümünü tek bir komutla."
+            ],
+            "command": "git checkout HEAD~^2~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout main; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Uygulamada Görelim",
+              "",
+              "Bu seviyeyi tamamlamak için, belirtilen hedefte yeni bir branch oluşturun.",
+              "",
+              "Tabii ki, commit'i doğrudan belirtmek (örneğin `C6` gibi) kolay olacaktır, ancak bunun yerine konuştuğumuz modifikatörleri kullanmanızı tavsiye ediyorum!"
+            ]
+          }
+        }
+      ]
+    }
+
   }
 };

@@ -20,7 +20,8 @@ exports.level = {
     "vi": "Giả lập làm việc nhóm",
     "sl_SI": "Lažno Ekipno Delo",
     "pl": "Symulacja pracy zespołowej",
-    "it_IT": "Simulare il lavoro di squadra"
+    "it_IT": "Simulare il lavoro di squadra",
+    "tr_TR": "Takım Çalışması Simülasyonu"
   },
   "hint": {
     "en_US": "Remember you can specify the number of commits to fake",
@@ -40,7 +41,8 @@ exports.level = {
     "vi": "Nhớ rằng bạn có thể chỉ định số lượng commit để giả lập",
     "sl_SI": "Spomni se, da lahko določiš število lažnih commitov.",
     "pl": "Pamiętaj, że możesz określić liczbę symulowanych commitów",
-    "it_IT": "Tieni a mente che puoi specificare il numero di commit da simulare"
+    "it_IT": "Tieni a mente che puoi specificare il numero di commit da simulare",
+    "tr_TR": "Kaç commit oluşturulacağını belirtebileceğinizi unutmayın"
   },
   "startDialog": {
     "en_US": {
@@ -91,7 +93,7 @@ exports.level = {
             "markdowns": [
               "The upcoming levels are going to be pretty difficult, so we're asking more of you for this level.",
               "",
-              "Go ahead and make a remote (with `git clone`), fake some changes on that remote, commit yourself, and then pull down those changes. It's like a few lessons in one!"
+              "Go ahead and make a remote (with `git clone`), fake some changes on that remote, add a local commit, and then pull down the remote changes and merge them. It's like a few lessons in one!"
             ]
           }
         }
@@ -215,7 +217,7 @@ exports.level = {
               "",
               "Entonces, hay algo un poco tramposo -- para algunas de las lecciones siguientes, necesitamos explicarte cómo descargar cambios introducidos en el repositorio remoto.",
               "",
-              "Eso significa que escencialmente tenemos que \"tener en cuenta\" que el repositorio remoto fue actualizado por algún colega, amigo o colaborador tuyo, incluso a veces en alguna rama específica o una cantidad determinada de commits.",
+              "Eso significa que esencialmente tenemos que \"tener en cuenta\" que el repositorio remoto fue actualizado por algún colega, amigo o colaborador tuyo, incluso a veces en alguna rama específica o una cantidad determinada de commits.",
               "",
               "Para lograr esto, introdujimos el bien llamado comando ¡`git fakeTeamwork`! Es bastante autoexplicativo: simula trabajo de nuestros colegas. Veamos una demo..."
             ]
@@ -377,7 +379,7 @@ exports.level = {
               "",
               "Entón, hai algo con trampa aquí -- para algunhas das leccións  seguintes, precisamos explicarche cómo baixar os cambios introducidos no repositorio remoto.",
               "",
-              "Eso significa que escencialmente temos que \"finxir\" que o repositorio remoto foi actualizado por algún compañeiro, amigo ou  incluso nalgunha rama específica a cantidade de commits feitos.",
+              "Eso significa que esencialmente temos que \"finxir\" que o repositorio remoto foi actualizado por algún compañeiro, amigo ou  incluso nalgunha rama específica a cantidade de commits feitos.",
               "",
               "Para acadar esto, introduxemos o ben chamado comando `git fakeTeamwork`! É bastante auto-explicativo: semella traballo dos nosos colegas. Vexamos una demo..."
             ]
@@ -996,7 +998,7 @@ exports.level = {
           "type": "GitDemonstrationView",
           "options": {
             "beforeMarkdowns": [
-              "Puoi anche specificare il numero di commit o il ramo su cui effettuali specificandolo nel comando."
+              "Puoi anche specificare il numero di commit o il ramo su cui effettuarle specificandolo nel comando."
             ],
             "afterMarkdowns": [
               "Con un comando abbiamo simulato un nostro collega che invia tre commit al ramo `foo` del repository remoto."
@@ -1012,6 +1014,60 @@ exports.level = {
               "I prossimi livelli saranno abbastanza tosti, quindi ti chiediamo un po' di più già da ora.",
               "",
               "Crea un repository remoto (con `git clone`), simula alcune modifiche su quel repository, effettua tu un commit, e poi recupera quelle modifiche. È come più lezioni in una!"
+            ]
+          }
+        }
+      ]
+    },
+    "tr_TR": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## İş birliğini simüle etmek",
+              "",
+              "Şimdi zor olan kısım şu -- bu gelecek derslerin bazıları için, uzaktaki bir depoda yapılan değişiklikleri nasıl çekeceğinizi öğretmemiz gerekiyor.",
+              "",
+              "Bu, esasen uzaktaki deponun, iş arkadaşlarınızdan / arkadaşlarınızdan / iş birliği yaptığınız kişilerden biri tarafından, bazen belirli bir dalda ya da belli sayıda commit ile güncellendiğini \"taklit etmemiz\" gerektiği anlamına geliyor.",
+              "",
+              "Bunu yapabilmek için uygun bir şekilde adlandırılmış `git fakeTeamwork` komutunu tanıttık! Oldukça açıklayıcı bir komut, haydi bir demo görelim..."
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "`fakeTeamwork` komutunun varsayılan davranışı, ana dalda bir commit oluşturup eklemektir."
+            ],
+            "afterMarkdowns": [
+              "İşte bu kadar -- uzaktaki depo yeni bir commit ile güncellendi ve biz henüz bu commit'i indirmedik çünkü `git fetch` komutunu çalıştırmadık."
+            ],
+            "command": "git fakeTeamwork",
+            "beforeCommand": "git clone"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Komuta bir dal adı veya commit sayısını ekleyerek bunları da belirtebilirsiniz."
+            ],
+            "afterMarkdowns": [
+              "Tek bir komutla, takım arkadaşınızın uzaktaki depodaki `foo` dalına üç commit gönderdiğini simüle ettik."
+            ],
+            "command": "git fakeTeamwork foo 3",
+            "beforeCommand": "git branch foo; git clone"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Gelecek seviyeler oldukça zorlayıcı olacak, bu yüzden bu seviyede sizden daha fazlasını istiyoruz.",
+              "",
+              "Bir uzaktan depo oluşturun (`git clone` ile), o uzaktan depoda bazı değişiklikleri taklit edin, kendi commit'inizi yapın ve ardından bu değişiklikleri indirin. Bu, birkaç dersin bir araya gelmiş hali gibi!"
             ]
           }
         }

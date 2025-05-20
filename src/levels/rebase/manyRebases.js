@@ -9,9 +9,9 @@ exports.level = {
   "startTree": "{\"branches\":{\"main\":{\"target\":\"C2\",\"id\":\"main\"},\"bugFix\":{\"target\":\"C3\",\"id\":\"bugFix\"},\"side\":{\"target\":\"C6\",\"id\":\"side\"},\"another\":{\"target\":\"C7\",\"id\":\"another\"}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C3\":{\"parents\":[\"C1\"],\"id\":\"C3\"},\"C4\":{\"parents\":[\"C0\"],\"id\":\"C4\"},\"C5\":{\"parents\":[\"C4\"],\"id\":\"C5\"},\"C6\":{\"parents\":[\"C5\"],\"id\":\"C6\"},\"C7\":{\"parents\":[\"C5\"],\"id\":\"C7\"}},\"HEAD\":{\"target\":\"main\",\"id\":\"HEAD\"}}",
   "name": {
     "en_US": "Rebasing over 9000 times",
-    "de_DE": "10000 Rebases unter dem `HEAD`",
+    "de_DE": "9000 Rebases unter dem `HEAD`",
     "es_AR": "Rebaseando más de 9000 veces",
-    "es_MX": "Rebaseando más de 8000... veces",
+    "es_MX": "Rebaseando más de 9000... veces",
     "es_ES": "Rebaseando más de 9000 veces",
     "pt_BR": "Fazendo mais de 9000 rebases",
     "gl": "Facendo máis de 9000 rebases",
@@ -24,8 +24,9 @@ exports.level = {
     "uk": "Rebase over 9000 разів",
     "vi": "Rebase hơn 9000 lần",
     "sl_SI": "Več kot 9000 Rebaseov",
-    "it_IT": "Rebasing livello 8000",
-    "pl": "Rebase ponad 8000 razy"
+    "it_IT": "Rebasing livello 9000",
+    "pl": "Rebase ponad 9000 razy",
+    "tr_TR": "9000 kereden fazla rebase işlemi yapmak"
   },
   "hint": {
     "en_US": "Remember, the most efficient way might be to only update main at the end...",
@@ -46,7 +47,8 @@ exports.level = {
     "sl_SI": "Pomni, morda je najbolj učinkovit način posodabljanje masterja samo na koncu ...",
     "it_IT":
       "Ricorda, il modo migliore potrebbe essere di aggiornare il main alla fine...",
-    "pl": "Pamiętaj, że najskuteczniejszym sposobem może być aktualizacja `main` dopiero na samym końcu..."
+    "pl": "Pamiętaj, że najskuteczniejszym sposobem może być aktualizacja `main` dopiero na samym końcu...",
+    "tr_TR": "Şunu hatırlamanı isterim ki: belki de en verimli yol işin sonunda maini güncellemektir."
   },
   "startDialog": {
     "en_US": {
@@ -372,6 +374,24 @@ exports.level = {
           },
         },
       ],
+    },
+    "tr_TR": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Birden fazla branch'ı rebase etmek",
+              "",
+              "Dostum, burada bir sürü branch'imiz var! Hadi tüm işlemleri bu branchlerden maine yeniden aktaralım (rebase).",
+              "",
+              "Yukarıya doğru yönetmek biraz zor gibi görünse de -- tüm commitlerin sıralı olmasını istiyorlar. Yani bu, ağacımızın son halinin en altta `C7`, onun üstünde `C6`, vs. sırayla olması gerektiği anlamına geliyor.",
+              "",
+              "Kafan karışırsa 'reset' tuşuna basarak yeniden başlamaktan çekinme. Çözümümüze göz attığından ve bu bölümü daha az komutla bitirip bitiremeyeceğini gördüğünden emin ol!"
+            ]
+          }
+        }
+      ]
     },
   }
 };

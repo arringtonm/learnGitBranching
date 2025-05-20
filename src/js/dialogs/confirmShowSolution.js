@@ -13,9 +13,9 @@ exports.dialog = {
     type: 'ModalAlert',
     options: {
       markdowns: [
-        '## Bist du sicher, dass du die Auflösung sehen willst?',
+        '## Bist du sicher, dass du die Lösung sehen willst?',
         '',
-        'Ich glaube an dich! Du schaffst das!'
+        'Ich glaube an dich! Du schaffst das schon!'
       ]
     }
   }],
@@ -105,13 +105,7 @@ exports.dialog = {
       markdowns: [
         '## どうしても正解がみたいですか?',
         '',
-        '頑張れ頑張れできるできる絶対できる頑張れもっとやれるって',
-        '',
-        'やれる気持ちの問題だ頑張れ頑張れそこだ！',
-        '',
-        'そこで諦めるな絶対に頑張れ積極的にポジティブに頑張る頑張る',
-        '',
-        '北京だって頑張ってるんだから！'
+        'あなたならきっとできるって信じてます!'
       ]
     }
   }],

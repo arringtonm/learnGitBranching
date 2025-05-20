@@ -129,6 +129,7 @@
         <a href="javascript:void(0)" class="levelIcon box center centerAlign vertical" id="levelIcon-<%=ids[i]%>" data-id="<%=ids[i]%>">
           <div class="index box" data-id="<%=ids[i]%>">
             <i class="icon-ok-circle" data-id="<%=ids[i]%>"></i>
+            <i class="icon-star" data-id="<%=ids[i]%>"></i>
             <div class="indexNum" data-id="<%=ids[i]%>">
               <%= i + 1 %>
             </div>
@@ -154,8 +155,8 @@
         -->
           <%= command.replace(' --aboveAll', '') %>
         </p>
-        <p class="uiButton uiButtonPink transitionOpacity" target="reset">
-            (Reset Animation)
+        <p class="transitionOpacity" target="reset">
+            Reset Animation
         </p>
       </div>
 
@@ -349,10 +350,10 @@
         </span>
         <button id="toggleButton" class="noStyle uiButton uiButtonPink">
           <span class="showWhenPicked">
-            Omit
+            Click to Drop/Omit
           </span>
           <span class="showWhenNotPicked">
-            Pick
+            Click to Include/Pick
           </span>
         </button>
       </div>

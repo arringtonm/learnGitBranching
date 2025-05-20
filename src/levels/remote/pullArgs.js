@@ -1,6 +1,6 @@
 exports.level = {
   "goalTreeString": "{\"branches\":{\"main\":{\"target\":\"C6\",\"id\":\"main\",\"remoteTrackingBranchID\":\"o/main\"},\"o/main\":{\"target\":\"C1\",\"id\":\"o/main\",\"remoteTrackingBranchID\":null},\"o/bar\":{\"target\":\"C1\",\"id\":\"o/bar\",\"remoteTrackingBranchID\":null},\"foo\":{\"target\":\"C3\",\"id\":\"foo\",\"remoteTrackingBranchID\":null},\"side\":{\"target\":\"C2\",\"id\":\"side\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C4\":{\"parents\":[\"C1\"],\"id\":\"C4\"},\"C3\":{\"parents\":[\"C1\"],\"id\":\"C3\"},\"C5\":{\"parents\":[\"C3\",\"C4\"],\"id\":\"C5\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C6\":{\"parents\":[\"C2\",\"C5\"],\"id\":\"C6\"}},\"HEAD\":{\"target\":\"main\",\"id\":\"HEAD\"},\"originTree\":{\"branches\":{\"main\":{\"target\":\"C2\",\"id\":\"main\",\"remoteTrackingBranchID\":null},\"bar\":{\"target\":\"C3\",\"id\":\"bar\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C3\":{\"parents\":[\"C1\"],\"id\":\"C3\"}},\"HEAD\":{\"target\":\"bar\",\"id\":\"HEAD\"}}}",
-  "solutionCommand": "git pull origin bar:foo;git pull origin main:side",
+  "solutionCommand": "git pull origin c3:foo;git pull origin c2:side",
   "startTree": "{\"branches\":{\"main\":{\"target\":\"C4\",\"id\":\"main\",\"remoteTrackingBranchID\":\"o/main\"},\"o/main\":{\"target\":\"C1\",\"id\":\"o/main\",\"remoteTrackingBranchID\":null},\"o/bar\":{\"target\":\"C1\",\"id\":\"o/bar\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C4\":{\"parents\":[\"C1\"],\"id\":\"C4\"}},\"HEAD\":{\"target\":\"main\",\"id\":\"HEAD\"},\"originTree\":{\"branches\":{\"main\":{\"target\":\"C2\",\"id\":\"main\",\"remoteTrackingBranchID\":null},\"bar\":{\"target\":\"C3\",\"id\":\"bar\",\"remoteTrackingBranchID\":null}},\"commits\":{\"C0\":{\"parents\":[],\"id\":\"C0\",\"rootCommit\":true},\"C1\":{\"parents\":[\"C0\"],\"id\":\"C1\"},\"C2\":{\"parents\":[\"C1\"],\"id\":\"C2\"},\"C3\":{\"parents\":[\"C1\"],\"id\":\"C3\"}},\"HEAD\":{\"target\":\"bar\",\"id\":\"HEAD\"}}}",
   "name": {
     "en_US": "Pull arguments",
@@ -20,7 +20,8 @@ exports.level = {
     "vi": "Tham số pull",
     "sl_SI": "Pull argumenti",
     "pl": "Argumenty pull",
-    "it_IT": "Parametri di git pull"
+    "it_IT": "Parametri di git pull",
+    "tr_TR": "Git pull komutunun parametreleri",
   },
   "hint": {
     "en_US": "Remember that you can create new local branches with fetch/pull arguments",
@@ -40,7 +41,8 @@ exports.level = {
     "vi": "Nhớ rằng, bạn có thể tạo nhánh cục bộ mới với tham số của fetch/pull",
     "sl_SI": "Zapomni si, da lahko ustvariš nove lokalne branche s fetch/pull argumenti.",
     "pl": "Pamiętaj, że za pomocą argumentów fetch/pull możesz tworzyć nowe lokalne gałęzie",
-    "it_IT": "Ricorda che puoi creare nuovi rami locali sfruttando fetch/pull + parametri"
+    "it_IT": "Ricorda che puoi creare nuovi rami locali sfruttando fetch/pull + parametri",
+    "tr_TR": "Unutma, fetch/pull parametreleri ile yeni yerel dallar oluşturabilirsin",
   },
   "startDialog": {
     "en_US": {
@@ -71,9 +73,9 @@ exports.level = {
               "",
               "And...",
               "",
-              "`git pull  origin bar~1:bugFix` is equal to:",
+              "`git pull  origin bar:bugFix` is equal to:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "See? git pull is really just shorthand for fetch + merge, and all git pull cares about is where the commits ended up (the `destination` argument that it figures out during fetch).",
               "",
@@ -145,9 +147,9 @@ exports.level = {
               "",
               "Et :",
               "",
-              "`git pull origin bar~1:bugFix` est équivalent à :",
+              "`git pull origin bar:bugFix` est équivalent à :",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Vous voyez ? git pull est au fond un simple un raccourci pour fetch + merge, et tout ce qui lui importe est la destination des commits (l'argument `destination` qu'il utilise durant le fetch).",
               "",
@@ -219,9 +221,9 @@ exports.level = {
               "",
               "Y...",
               "",
-              "`git pull  origin bar~1:bugFix` equivale a:",
+              "`git pull  origin bar:bugFix` equivale a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "¿Ves? git pull es simplemente un atajo para un fetch + merge, y todo lo que le importa a git pull es dónde terminaron esos commits (el parámetro `destino` que determina durante el fetch).",
               "",
@@ -293,9 +295,9 @@ exports.level = {
               "",
               "Y...",
               "",
-              "`git pull origin bar~1:bugFix` equivale a:",
+              "`git pull origin bar:bugFix` equivale a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "¿Ves? git pull es simplemente un atajo para un fetch + merge, y todo lo que le importa a git pull es dónde terminaron esos commits (el parámetro `destino` que determina durante el fetch).",
               "",
@@ -367,9 +369,9 @@ exports.level = {
               "",
               "Y...",
               "",
-              "`git pull  origin bar~1:bugFix` equivale a:",
+              "`git pull  origin bar:bugFix` equivale a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "¿Ves? git pull es simplemente un atajo para un fetch + merge, y todo lo que le importa a git pull es dónde terminaron esos commits (el parámetro `destino` que determina durante el fetch).",
               "",
@@ -441,9 +443,9 @@ exports.level = {
               "",
               "E...",
               "",
-              "`git pull  origin bar~1:bugFix` é igual a:",
+              "`git pull  origin bar:bugFix` é igual a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Viu? O git pull é realmente um atalho para fetch + merge, e tudo com o que o git pull se importa é com onde os commits foram parar (o parâmetro de `destino` que ele descobre durante o fetch).",
               "",
@@ -515,9 +517,9 @@ exports.level = {
               "",
               "E...",
               "",
-              "`git pull  origin bar~1:bugFix` equivale a:",
+              "`git pull  origin bar:bugFix` equivale a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "¿Ves? git pull é sinxelamente un atallo para un fetch + merge, e todo o que lle importa a git pull é ónde terminaron eses commits (o parámetro `destino` que indícase durante o fetch).",
               "",
@@ -589,9 +591,9 @@ exports.level = {
               "",
               "而且...",
               "",
-              "`git pull  origin bar~1:bugFix` 相當於：",
+              "`git pull  origin bar:bugFix` 相當於：",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "看吧？`git pull` 真的就只是表示 fetch 跟 merge 的一個簡化後的指令，而且 `git pull` 所根據的是這些 commit 要放置的位置（在 fetch 的時候所指定的`destination`）。",
               "",
@@ -663,9 +665,9 @@ exports.level = {
               "",
               "还有...",
               "",
-              "`git pull origin bar~1:bugFix` 相当于：",
+              "`git pull origin bar:bugFix` 相当于：",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "看到了? git pull 实际上就是 fetch + merge 的缩写, git pull 唯一关注的是提交最终合并到哪里（也就是为 git fetch 所提供的 destination 参数）",
               "",
@@ -737,9 +739,9 @@ exports.level = {
               "",
               "Und ...",
               "",
-              "`git pull origin bar~1:bugFix` ist dasselbe wie:",
+              "`git pull origin bar:bugFix` ist dasselbe wie:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Siehst du? `git pull` ist wirklich nur eine Abkürzung von `fetch` + `merge` und es interessiert sich nur dafür, wo die Commits hin sollen (die \"Ziel\"-Option, die es beim `fetch` auswertet).",
               "",
@@ -811,9 +813,9 @@ exports.level = {
               "",
               "他にも...",
               "",
-              "`git pull  origin bar~1:bugFix` は次のコマンドと同じ働きをします。",
+              "`git pull  origin bar:bugFix` は次のコマンドと同じ働きをします。",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "ご覧の通り、`git pull`は単なるfetch + mergeの略語であり、git pullが必要とするのはコミットがどこへ行くのか（fetchにおける`<destination>`）だけなのです。",
               "",
@@ -894,9 +896,9 @@ exports.level = {
               "",
               "И еще...",
               "",
-              "`git pull  origin bar~1:bugFix` то же, что:",
+              "`git pull  origin bar:bugFix` то же, что:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Как видно, git pull используется, чтобы за одну команду выполнить fetch + merge.",
               "",
@@ -968,9 +970,9 @@ exports.level = {
               "",
               "그리고...",
               "",
-              "`git pull  origin bar~1:bugFix` 는 다음과 같습니다:",
+              "`git pull  origin bar:bugFix` 는 다음과 같습니다:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "보이죠? git pull은 그저 fetch + merge의 축약형일 뿐이에요, 그리고 git pull은 커밋들이 도착하는곳을 신경씁니다(fetch를 하며 지정된 `destination`인자의 위치로 merge가 수행됩니다).",
               "",
@@ -1042,9 +1044,9 @@ exports.level = {
               "",
               "А...",
               "",
-              "`git pull origin bar~1:bugFix` -- це аналог:",
+              "`git pull origin bar:bugFix` -- це аналог:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Бачиш? git pull -- це просто зручне скорочення для fetch + merge. А все, про що дбає git pull -- це те, куди в результаті підуть коміти (а про це йому говорить аргумент `destination`).",
               "",
@@ -1116,9 +1118,9 @@ exports.level = {
               "",
               "Và...",
               "",
-              "`git pull  origin bar~1:bugFix` tương đương với:",
+              "`git pull  origin bar:bugFix` tương đương với:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Thấy chứ? git pull thực ra chỉ là lệnh tắt cho fetch + merge, và tất cả những gì git pull quan tâm là nơi mà các commit sẽ tới (tham số `đích` mà nó diễn giải được trong quá trình nạp).",
               "",
@@ -1190,9 +1192,9 @@ exports.level = {
               "",
               "In ...",
               "",
-              "`git pull  origin bar~1:bugFix` je enak:",
+              "`git pull  origin bar:bugFix` je enak:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Vidiš? Git pull je res bližnjica za fetch + merge. Vse kar zanima git pull je, kje bodo commiti končali (`ciljni` argument, ki ga ugotovi med fetchem).",
               "",
@@ -1264,9 +1266,9 @@ exports.level = {
               "",
               "A...",
               "",
-              "`git pull  origin bar~1:bugFix` daje taki sam efekt jak:",
+              "`git pull  origin bar:bugFix` daje taki sam efekt jak:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Widzisz? Polecenie `git pull` to naprawdę tylko skrót dla fetch + merge i jedyne, co się liczy dla `git pull`, to gdzie trafią commity (argument `celu`, który Git zinterpretuje sobie, wykonując fetch).",
               "",
@@ -1338,9 +1340,9 @@ exports.level = {
               "",
               "E...",
               "",
-              "`git pull  origin bar~1:bugFix` è equivalente a:",
+              "`git pull  origin bar:bugFix` è equivalente a:",
               "",
-              "`git fetch origin bar~1:bugFix; git merge bugFix`",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
               "",
               "Visto? git pull non è altro che una scorciatoia per fetch + merge, e l'unica cosa che interessa a quel comando è la posizione d'arrivo dei commit (il parametro `destination` specificato durante il fetch).",
               "",
@@ -1379,6 +1381,80 @@ exports.level = {
           "options": {
             "markdowns": [
               "Ok per concludere, raggiungi lo stato mostrato nella finestra dell'obiettivo. Dovrai scaricare alcuni commit, creare alcuni rami, e fondere quei rami in altri rami, ma senza usare troppi comandi :P"
+            ]
+          }
+        }
+      ]
+    },
+    "tr_TR": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## Git pull argümanları",
+              "",
+              "Artık `git fetch` ve `git push` için argümanlarla ilgili bilmeniz gereken hemen hemen *her şey* öğrendiniz, geriye neredeyse hiçbir şey kalmadı :)",
+              "",
+              "Çünkü git pull, nihayetinde *gerçekten* sadece bir fetch ve ardından alınan değişikliklerin birleştirilmesi için kullanılan kısa bir komuttur. Bunu, `git fetch` komutunu *aynı* argümanlarla çalıştırmak ve sonra bu commitlerin nereye yerleştiğine bakarak birleştirmek gibi düşünebilirsiniz.",
+              "",
+              "Bu, karmaşık argümanlar kullansanız bile geçerlidir. İşte bazı örnekler:"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "İşte git'teki bazı eşdeğer komutlar:",
+              "",
+              "`git pull origin foo` şu komutla eşdeğerdir:",
+              "",
+              "`git fetch origin foo; git merge o/foo`",
+              "",
+              "Ve...",
+              "",
+              "`git pull origin bar:bugFix` şu komutla eşdeğerdir:",
+              "",
+              "`git fetch origin bar:bugFix; git merge bugFix`",
+              "",
+              "Görüyorsunuz değil mi? git pull aslında fetch + merge komutlarının kısaltmasıdır ve git pull yalnızca commitlerin nereye yerleştiğiyle ilgilenir (fetch sırasında bulduğu `destination` argümanı).",
+              "",
+              "Şimdi bir demo yapalım:"
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Eğer fetch edilecek yeri belirtirsek, her şey daha önce fetch ile olduğu gibi gerçekleşir, ancak yeni alınan değişiklikleri birleştiririz."
+            ],
+            "afterMarkdowns": [
+              "Görüyorsunuz! `main`'i belirterek `o/main` üzerindeki commitleri normal şekilde indirdik. Sonra `o/main`'i şu anda üzerinde çalıştığımız konumla birleştirdik, bu da *yerel main branşı* değil. Bu nedenle aslında git pull'ü farklı konumlardan (aynı argümanlarla) birden fazla kez çalıştırmak, birden fazla branşı güncellemek için mantıklı olabilir."
+            ],
+            "command": "git pull origin main",
+            "beforeCommand": "git clone; go -b bar; git commit; git fakeTeamwork"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Peki ya kaynak ve hedef ile de çalışıyor mu? Kesinlikle! Bunu görelim:"
+            ],
+            "afterMarkdowns": [
+              "Vay, bu bir komutta tonlarca şey oldu. Yerel olarak `foo` adında yeni bir branch oluşturduk, uzak depodaki `main`'den commitleri bu `foo` branch'ine indirdik ve sonra bu branch'i şu anda üzerinde çalıştığımız `bar` branch'ine birleştirdik. Bu gerçekten 9000'in üzerinde!!!"
+            ],
+            "command": "git pull origin main:foo",
+            "beforeCommand": "git clone; git fakeTeamwork; go -b bar; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Tamam, bitirmek için hedef görselleştirmesinin durumuna ulaşın. Bazı commitleri indirmeniz, yeni branşlar oluşturmanız ve bu branşları diğer branşlara birleştirmeniz gerekecek, ancak bu çok fazla komut almaz :P"
             ]
           }
         }
